@@ -14,12 +14,20 @@ class GeneralInfo extends \PleskX\Api\Struct
     /** @var integer */
     public $realSize;
 
+    /** @var string */
+    public $status;
+
+    /** @var string */
+    public $ownerId;
+
     public function __construct($apiResponse)
     {
         $this->_initScalarProperties($apiResponse, [
             'name',
             'guid',
             'real_size',
+            'status',
+            'owner-id',
         ]);
     }
 }

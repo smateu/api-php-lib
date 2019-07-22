@@ -120,4 +120,13 @@ class Webspace extends \PleskX\Api\Operator
         return reset($items);
     }
 
+    /**
+     * @return Struct\GeneralInfo[]
+     */
+    public function getLimits($field, $value)
+    {
+        $items = $this->_getItems(Struct\Limits::class, 'limits', $field, $value);
+        return reset($items);
+    }
+
 }

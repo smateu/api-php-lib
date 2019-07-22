@@ -12,11 +12,19 @@ class Version extends \PleskX\Api\Struct
     /** @var string */
     public $version;
 
+    /** @var string */
+    public $os;
+
+    /** @var string */
+    public $os_version;
+
     public function __construct($apiResponse)
     {
         $this->_initScalarProperties($apiResponse, [
             ['plesk_name' => 'internalName'],
             ['plesk_version' => 'version'],
+            ['plesk_os' => 'os'],
+            ['plesk_os_version' => 'os_version'],
         ]);
     }
 }

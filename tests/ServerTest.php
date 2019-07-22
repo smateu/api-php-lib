@@ -92,6 +92,14 @@ class ServerTest extends TestCase
         $stats = static::$_client->server()->getStatistics();
         $this->assertIsNumeric($stats->objects->clients);
         $this->assertEquals('psa', $stats->version->internalName);
+        $this->assertInternalType('integer', $stats->load_avg->l1);
+        $this->assertInternalType('integer', $stats->other->uptime);
+        $this->assertInternalType('string', $stats->version->os);
+        $this->assertInternalType('integer', $stats->mem->total);
+        $diskDevices = $stats->disk->devices;
+        $this->assertInternalType('array', $diskDevices);
+        $this->assertGreaterThan(0, count($diskDevices));
+        $this->assertInternalType('integer', $diskDevices[0]->total);
     }
 
     public function testGetSiteIsolationConfig()
